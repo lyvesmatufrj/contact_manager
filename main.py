@@ -5,9 +5,9 @@ def main():
     family_group = ContactGroup("Family")
     work_group = ContactGroup("Work")
 
-    contact1 = PersonalContact(name="John Doe", phone="555-1234", email="john@example.com", 
+    contact1 = PersonalContact(name="John Doe", phone="555-1234", email="john@example.com",
                                birthday="2000-01-01")
-    contact2 = BusinessContact(name="Jane Doe", phone="555-5678", email="jane@company.com", 
+    contact2 = BusinessContact(name="Jane Doe", phone="555-5678", email="jane@company.com",
                                company="TechCorp", job_title="Engineer")
 
     family_group.add_contact(contact1)

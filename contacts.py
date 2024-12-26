@@ -1,3 +1,6 @@
+from utils import log_execution
+
+
 class Contact:
     def __init__(self, name: str, phone: str, email: str):
         self.name = name
@@ -32,13 +35,16 @@ class ContactGroup:
         self.group_name = group_name
         self.contacts = []
 
+    @log_execution
     def add_contact(self, contact):
         self.contacts.append(contact)
         print(f"Contact {contact.name} added to group {self.group_name}.")
 
+    @log_execution
     def remove_contact(self, contact_name):
         self.contacts = [contact for contact in self.contacts if contact.name != contact_name]
 
+    @log_execution
     def list_contacts(self):
         if not self.contacts:
             print(f"No contacts in group {self.group_name}")
