@@ -1,33 +1,23 @@
-from contacts import add_contact, remove_contact, list_contacts
-from utils import validate_phone
+from contacts import PersonalContact, BusinessContact, ContactGroup
 
 
 def main():
-    while True:
-        print("\nContact Manager")
-        print("1. Add Contact")
-        print("2. Remove Contact")
-        print("3. List Contacts")
-        print("4. Exit")
-        choice = input("Enter your choice: ")
+    family_group = ContactGroup("Family")
+    work_group = ContactGroup("Work")
 
-        if choice == '1':
-            name = input("Enter contact name: ")
-            phone = input("Enter contact phone: ")
-            if validate_phone(phone):
-                add_contact(name, phone)
-            else:
-                print("Invalid phone number. It should be 10 digits.")
-        elif choice == '2':
-            name = input("Enter the name of the contact to remove: ")
-            remove_contact(name)
-        elif choice == '3':
-            list_contacts()
-        elif choice == '4':
-            print("Exiting Contact Manager.")
-            break
-        else:
-            print("Invalid choice. Please try again.")
+    contact1 = PersonalContact(name="John Doe", phone="555-1234", email="john@example.com", 
+                               birthday="2000-01-01")
+    contact2 = BusinessContact(name="Jane Doe", phone="555-5678", email="jane@company.com", 
+                               company="TechCorp", job_title="Engineer")
+
+    family_group.add_contact(contact1)
+    work_group.add_contact(contact2)
+
+    family_group.list_contacts()
+    work_group.list_contacts()
+
+    family_group.remove_contact("John Doe")
+    family_group.list_contacts()
 
 
 if __name__ == "__main__":
