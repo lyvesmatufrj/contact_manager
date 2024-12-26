@@ -1,4 +1,4 @@
-from utils import log_execution
+from contact_manager.utils import log_execution
 
 
 class Contact:
